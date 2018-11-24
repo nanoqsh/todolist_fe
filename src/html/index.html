@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TODO List</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous"
+    >
+</head>
+<body>
+  <header>
+    <div class="header_wrapper">
+      <div class="user_block">
+        <div class="logout" href="/logout">sign out</div>
+        <div class="username">nekosora</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tasks container -->
+  <div class="tasks">
+    <div class="message">My tasks: (5)</div>
+
+    <div class="filter">
+      <div class="by_status">
+        <div class="title">sort by status: </div>
+        <div class="btn active">all</div>
+        <div class="btn">done</div>
+        <div class="btn">undone</div>
+      </div>
+
+      <div class="by_priority">
+        <div class="title">sort by priority: </div>
+        <div class="btn active">any</div>
+        <div class="btn">termless</div>
+        <div class="btn">low</div>
+        <div class="btn">regular</div>
+        <div class="btn">high</div>
+        <div class="btn">immediate!</div>
+      </div>
+    </div>
+
+    <div class="task" attr-id="15">
+      <div class="mark" onclick="mark_handler(this)" attr-done="undone">
+        <div class="undone">
+          <i class="fas fa-check fa-lg"></i>
+        </div>
+      </div>
+      <div class="title">Do something</div>
+      <div class="priority p5"></div>
+      <div class="edit_btn btn">
+        <i class="fas fa-pen fa-lg"></i>
+      </div>
+      <div class="delete_btn btn">
+        <i class="fas fa-trash fa-lg"></i>
+      </div>
+    </div>
+
+    <div class="task" attr-id="14">
+      <div class="mark" onclick="mark_handler(this)" attr-done="done">
+        <div class="done">
+          <i class="fas fa-check fa-lg"></i>
+        </div>
+      </div>
+      <div class="title">Do something else</div>
+      <div class="priority p3"></div>
+      <div class="edit_btn btn">
+        <i class="fas fa-pen fa-lg"></i>
+      </div>
+      <div class="delete_btn btn">
+        <i class="fas fa-trash fa-lg"></i>
+      </div>
+    </div>
+
+    <div class="load_more">load more tasks</div>
+
+  </div>
+
+  <div class="new_task">
+    <i class="fas fa-plus fa-2x"></i>
+  </div>
+
+  <script src="./js/tasks.js"></script>
+
+</body>
+</html>

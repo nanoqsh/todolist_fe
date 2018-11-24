@@ -1,0 +1,269 @@
+
+=no_select()
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+
+$font_sm: 12px
+$font_def: 16px
+$font_md: 24px
+$font_lg: 28px
+
+$color_main: #1e9ede
+$color_main_hover: #1e8ede
+$color_main_active: #2d9efe
+$color_bg: #f5f7f7
+$color_dark: #272938
+$color_light_gray: #b7bfc6
+$color_green: #16c786
+$color_light_hover: #eef
+
+$size_site_width: 1200px
+$size_header_height: 64px
+$size_def_round: 64px
+$size_def_margin: 32px
+$size_def_padding: 12px
+$size_user_width: 200px
+$size_task_height: 64px
+
+$shadow_def: 0 0 10px rgba(0, 0, 0, .1)
+$border_radius_def: 5px
+
+*
+  font-family: 'Roboto', sans-serif
+  margin: 0
+  padding: 0
+  font-size: $font_def
+  color: $color_dark
+
+body
+  background: $color_bg
+
+header
+  height: $size_header_height
+  box-shadow: $shadow_def
+  background: #fff
+
+.header_wrapper
+  margin: 0 auto
+  display: block
+  max-width: $size_site_width
+  height: 100%
+  position: relative
+
+  .user_block
+    min-width: $size_user_width
+    height: 100%
+    display: flex
+    flex-direction: row-reverse
+    +no_select()
+
+  .username
+    display: inline-block
+    text-align: center
+    height: $size_header_height
+    line-height: $size_header_height
+    padding: 0 $size_def_padding
+    box-sizing: border-box
+
+    &:hover
+      background: $color_light_hover
+      cursor: pointer
+
+  .logout
+    display: inline-block
+    text-align: center
+    height: $size_header_height
+    line-height: $size_header_height
+    padding: 0 $size_def_padding
+    box-sizing: border-box
+    color: $color_light_gray
+
+    &:hover
+      background: $color_light_hover
+      cursor: pointer
+
+
+.new_task
+  background: $color_main
+  width: $size_def_round
+  height: $size_def_round
+  border-radius: 50%
+  position: fixed
+  right: $size_def_margin
+  bottom: $size_def_margin
+
+  i
+    color: #fff
+    line-height: $size_def_round
+    width: $size_def_round
+    text-align: center
+
+  &:hover
+    background: $color_main_hover
+    cursor: pointer
+
+  &:active
+    background: $color_main_active
+
+
+.tasks
+  margin: 0 auto
+  display: block
+  max-width: $size_site_width
+
+  .load_more
+    padding: 0 $size_def_padding
+    cursor: pointer
+    color: $color_main
+    display: inline-block
+
+    &:hover
+      color: $color_main_hover
+
+
+  .filter
+    margin: 0 0 ($size_def_margin / 2) 0
+    +no_select()
+    display: flex
+
+    .by_priority
+      margin-left: auto
+
+    .by_status, .by_priority
+      display: flex
+      padding: 0 $size_def_padding
+
+      .btn
+        background: $color_light_gray
+        color: #fff
+        padding: 0 6px
+        margin: 0 4px
+        border-radius: $border_radius_def
+        cursor: pointer
+
+        &.active
+          background: $color_main
+
+
+  .task
+    width: 100%
+    height: $size_task_height
+    background: #fff
+    margin: 0 0 ($size_def_margin / 2) 0
+    box-shadow: $shadow_def
+    display: flex
+
+    .btn
+      width: $size_task_height
+      height: $size_task_height
+
+      i
+        line-height: $size_task_height
+        width: 100%
+        display: inline-block
+        text-align: center
+        color: $color_light_gray
+
+      &:hover
+        cursor: pointer
+
+        i
+          color: darken($color_light_gray, 10%)
+
+
+    .mark
+      width: $size_task_height
+      height: $size_task_height
+      padding: $size_def_padding
+      box-sizing: border-box
+
+      .undone
+        width: 100%
+        height: 100%
+        background: $color_light_hover
+        border-radius: 50%
+
+        &:hover
+          cursor: pointer
+          background: mix($color_light_hover, $color_green)
+
+        i
+          display: none
+
+      .done
+        width: 100%
+        height: 100%
+        background: $color_green
+        border-radius: 50%
+
+        &:hover
+          cursor: pointer
+          background: lighten($color_green, 2%)
+
+        i
+          color: #fff
+          display: inline-block
+          width: 100%
+          text-align: center
+          line-height: $size_task_height - $size_def_padding * 2
+
+    .title
+      font-size: $font_md
+      line-height: $size_task_height
+      padding: 0 $size_def_padding
+
+    .priority
+      margin-left: auto
+      margin-right: $size_def_margin
+
+      &::before
+        content: 'priority: '
+        height: $size_task_height
+        line-height: $size_task_height
+        color: $color_light_gray
+
+      &::after
+        border-radius: $border_radius_def
+        padding: 0 4px
+        color: #fff
+
+      &.p5::after
+        content: 'immediate!'
+        background: lighten(red, 10%)
+
+      &.p4::after
+        content: 'high'
+        background: lighten(#f30, 20%)
+
+      &.p3::after
+        content: 'regular'
+        background: lighten(#fa0, 10%)
+
+      &.p2::after
+        content: 'low'
+        background: lighten(#0f0, 20%)
+
+      &.p1::after
+        content: 'termless'
+        background: lighten(#000, 70%)
+
+
+  .message
+    font-size: $font_lg
+    color: $color_light_gray
+    margin: $size_def_margin 0
+    width: 100%
+    text-align: center
+    +no_select()
+
+
+
+
+
+
+
+
+//

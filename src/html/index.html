@@ -87,11 +87,26 @@
 
   <div class="popups">
     <div class="popup popup_add_edit active">
-      <form action="#">
+      <form class="form" action="#">
         <div class="close_btn" onclick="close_popups()">
           <i class="fas fa-times fa-2x"></i>
         </div>
         <div class="title">Add new task</div>
+
+        <div class="errors">
+          <div class="error">Super fatal error exception!</div>
+          <div class="error">Super fatal error exception!</div>
+        </div>
+
+        <div class="input_field">
+          <label>Title</label>
+          <input type="text" name="title" placeholder="the new tesk" value="">
+        </div>
+
+        <div class="input_field">
+          <label>Priority</label>
+          <input type="text" name="priority" value="">
+        </div>
 
         <div class="btns">
           <div class="btn" onclick="close_popups()">Save</div>

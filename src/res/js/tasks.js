@@ -14,4 +14,12 @@
     console.log("For task id: " + id + " setted a value " + set_done);
   };
 
+  // Close popup handler
+  window.close_popups = () => {
+    let close_list = document.querySelectorAll('.popups .popup, .popups .overlay');
+
+    for (let el of close_list)
+      el.classList.remove('active')
+  };
+
 })();

@@ -27,6 +27,7 @@ $size_def_margin: 32px
 $size_def_padding: 12px
 $size_user_width: 200px
 $size_task_height: 64px
+$size_popup_width: 500px
 
 $shadow_def: 0 0 10px rgba(0, 0, 0, .1)
 $border_radius_def: 5px
@@ -113,16 +114,6 @@ header
   margin: 0 auto
   display: block
   max-width: $size_site_width
-
-  .load_more
-    padding: 0 $size_def_padding
-    cursor: pointer
-    color: $color_main
-    display: inline-block
-
-    &:hover
-      color: $color_main_hover
-
 
   .filter
     margin: 0 0 ($size_def_margin / 2) 0
@@ -260,7 +251,86 @@ header
     +no_select()
 
 
+.popups
+  position: absolute
+  top: 0
+  left: 0
 
+.popup
+  background: #fff
+  box-shadow: $shadow_def
+  width: $size_popup_width
+  display: none
+  z-index: 100
+  position: fixed
+  top: 140px
+  left: 50vw
+  transform: translate(-50%, 0)
+  padding: $size_def_margin
+  box-sizing: border-box
+
+  &.active
+    display: block
+
+  .close_btn
+    position: absolute
+    right: $size_def_margin
+    top: $size_def_margin
+    width: $size_def_margin
+    height: $size_def_margin
+    cursor: pointer
+
+    &:hover
+      i
+        color: $color_main
+
+    i
+      display: inline-block
+      width: 100%
+      text-align: center
+      line-height: $size_def_margin
+      color: $color_light_gray
+
+  .title
+    font-size: $font_lg
+    color: $color_light_gray
+    margin-bottom: $size_def_margin
+    +no_select()
+
+.overlay
+  display: none
+  position: fixed
+  top: 0
+  left: 0
+  width: 100vw
+  height: 100vh
+  background: rgba(0, 0, 0, .4)
+  z-index: 99
+
+  &.active
+    display: block
+
+.btns
+  width: 100%
+  display: flex
+  flex-direction: row-reverse
+  box-sizing: border-box
+
+  .btn
+    display: inline-block
+    padding: $size_def_padding ($size_def_padding * 2)
+    border-radius: $border_radius_def
+    background: $color_main
+    color: #fff
+    cursor: pointer
+    border: none
+    +no_select()
+
+    &:hover
+      background: $color_main_hover
+
+    &:active
+      background: $color_main_active
 
 
 

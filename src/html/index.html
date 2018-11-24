@@ -79,12 +79,26 @@
       </div>
     </div>
 
-    <div class="load_more">load more tasks</div>
-
   </div>
 
   <div class="new_task">
     <i class="fas fa-plus fa-2x"></i>
+  </div>
+
+  <div class="popups">
+    <div class="popup popup_add_edit active">
+      <form action="#">
+        <div class="close_btn" onclick="close_popups()">
+          <i class="fas fa-times fa-2x"></i>
+        </div>
+        <div class="title">Add new task</div>
+
+        <div class="btns">
+          <div class="btn" onclick="close_popups()">Save</div>
+        </div>
+      </form>
+    </div>
+    <div class="overlay active" onclick="close_popups()"></div>
   </div>
 
   <script src="./js/tasks.js"></script>
